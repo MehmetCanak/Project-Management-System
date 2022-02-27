@@ -1,0 +1,24 @@
+version: "3.3"
+
+services:
+  laravel:
+    image: laravel:1.0
+    volumes:
+      - ./backend:/var/www 
+      - ./backend/php.ini:/usr/local/etc/php/conf.d/local.ini
+      - /var/run/docker.sock:/var/run/docker.sock 
+      - '/etc/localtime:/etc/localtime:ro'
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    deploy:
+      mode: replicated
+      replicas: 1
+    networks:
+      - backend-nw
+      - db-nw
+      - mq-nw
+networks:
+    backend-nw:
+    db-nw:
+    mq-nw:
