@@ -1,7 +1,7 @@
 version: "3.3"
 
 services:
-  laravel:
+  php:
     image: laravel:1.0
     volumes:
       - ./backend:/var/www 
@@ -18,13 +18,89 @@ services:
       - backend-nw
       - db-nw
       - mq-nw
-  angular: 
+  nginx:
+    image: nginx:alpine
+    tty: true
+    volumes:
+      - ./backend:/var/www 
+      - ./backend/nginx.conf:/etc/nginx/conf.d/app.conf
+      - '/etc/localtime:/etc/localtime:ro'
+    deploy:
+      mode: replicated
+      replicas: 1
+      labels:
+        traefik.api.frontend.rule: "PathPrefix:/api"
+        traefik.logs.frontend.rule: "PathPrefix:/logs"
+        traefik.port: "80"
+        traefik.enable: "true"
+        traefik.backend: "nginx"
+        traefik.docker.network: "project_backend-nw"
+    networks:
+        - backend-nw
+  frontend: 
     image: angular:1.0
     volumes:
       - ./frontend:/usr/src/app 
       - '/etc/localtime:/etc/localtime:ro'
     networks:
       - frontend-nw
+    deploy:
+      mode: replicated
+      replicas: 1
+      labels:
+        traefik.frontend.rule: "PathPrefix:/"
+        traefik.port: "80"
+        traefik.enable: "true"
+        traefik.backend: "frontend"
+        traefik.docker.network: "project_frontend-nw"
+  reverse_proxy:
+    image: traefik:alpine
+    command: -c /etc/traefik.toml
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+      - "8080:8080"
+      - "80:80"
+      - target: 443
+        published: 443 
+        mode: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./services/reverse_proxy/traefik-stack.toml:/etc/traefik.toml
+      - ./services/reverse_proxy/data/traefik.log:/etc/traefik.log
+      - ./services/reverse_proxy/data/traefik-access.log:/etc/traefik-access.log
+      - ./services/reverse_proxy/self.crt:/etc/self.crt
+      - ./services/reverse_proxy/self.key:/etc/self.key
+      - '/etc/localtime:/etc/localtime:ro'
+    networks:
+      - frontend-nw
+      - backend-nw
+  portainer:
+    image: portainer/portainer
+    ports:
+      - 9000:9000
+    command: -H unix:///var/run/docker.sock
+    deploy:
+      mode: replicated
+      replicas: 1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./services/portainer/data:/data 
+      - '/etc/localtime:/etc/localtime:ro'
+  test:
+    image: containous/whoami:latest
+    networks:
+      - frontend-nw
+    deploy:
+      mode: replicated
+      replicas: 1
+      labels:
+        traefik.frontend.rule: "PathPrefixStrip:/test"
+        traefik.port: "80"
+        traefik.enable: "true"
+        traefik.backend: "test"
+        traefik.docker.network: "angaryos_frontend-nw"
 networks:
     backend-nw:
     frontend-nw:
