@@ -18,6 +18,19 @@ services:
       - backend-nw
       - db-nw
       - mq-nw
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: laravel
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./services/mysql:/var/lib/mysql
+      - '/etc/localtime:/etc/localtime:ro'
+    networks:
+      - db-nw
   nginx:
     image: nginx:alpine
     tty: true
