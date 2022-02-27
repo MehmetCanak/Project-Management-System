@@ -38,7 +38,7 @@ services:
     networks:
         - backend-nw
   frontend: 
-    image: angular:1.0
+    image: karapazar/angular-serve:0.75
     volumes:
       - ./frontend:/usr/src/app 
       - '/etc/localtime:/etc/localtime:ro'
@@ -49,7 +49,7 @@ services:
       replicas: 1
       labels:
         traefik.frontend.rule: "PathPrefix:/"
-        traefik.port: "80"
+        traefik.port: "4200"
         traefik.enable: "true"
         traefik.backend: "frontend"
         traefik.docker.network: "project_frontend-nw"
