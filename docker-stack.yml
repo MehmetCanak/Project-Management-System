@@ -18,7 +18,15 @@ services:
       - backend-nw
       - db-nw
       - mq-nw
+  angular: 
+    image: angular:1.0
+    volumes:
+      - ./frontend:/usr/src/app 
+      - '/etc/localtime:/etc/localtime:ro'
+    networks:
+      - frontend-nw
 networks:
     backend-nw:
+    frontend-nw:
     db-nw:
     mq-nw:
