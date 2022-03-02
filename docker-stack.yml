@@ -51,9 +51,9 @@ services:
     networks:
         - backend-nw
   frontend: 
-    image: karapazar/angular-serve:0.75
+    image: angular:1.8
     volumes:
-      - ./frontend:/usr/src/app 
+      - ./:/usr/src/app 
       - '/etc/localtime:/etc/localtime:ro'
     networks:
       - frontend-nw
