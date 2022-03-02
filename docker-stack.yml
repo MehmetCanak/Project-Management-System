@@ -51,9 +51,9 @@ services:
     networks:
         - backend-nw
   frontend: 
-    image: angular:1.8
+    image: angular:1.9
     volumes:
-      - ./:/usr/src/app 
+      - ./frontend:/usr/src/app 
       - '/etc/localtime:/etc/localtime:ro'
     networks:
       - frontend-nw
