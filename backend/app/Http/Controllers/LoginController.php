@@ -8,8 +8,14 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 
+use Illuminate\Support\Facades\Auth;
+use Validator;
+
 class LoginController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +36,22 @@ class LoginController extends Controller
     public function login(UserRequest $request) //, User $user
     {
         $validated = $request->validated();
-        return $validated;
+        if ($validated->fails()) {
+            return response()->json($validated->errors(), 422);
+        }
+        if (! $token = auth()->attempt($validated->validated())) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+        return $this->createNewToken($token);
+        //return $validated;
+    }
+    protected function createNewToken($token){
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 60,
+            'user' => auth()->user()
+        ]);
     }
 
     /**
