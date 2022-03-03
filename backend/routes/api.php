@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+$data =
+[
+    'prefix' => 'v1',  
+    'namespace' => 'Api\V1', 
+    'middleware' => ['api', 'check_auth']
+];
+
+Route::get('/test', [TestController::class, 'show']);
+Route::group($data, function () { require 'api_require.php'; });
+
 
 Route::get('/', function () {
     return view('welcome');
