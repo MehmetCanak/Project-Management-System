@@ -28,6 +28,4 @@ Route::get('/test', [TestController::class, 'show']);
 Route::group($data, function () { require 'api_require.php'; });
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+

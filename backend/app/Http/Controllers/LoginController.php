@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UserRequest;
+use Illuminate\Http\Request;
 use App\Models\User;
 
 class LoginController extends Controller
@@ -18,9 +19,18 @@ class LoginController extends Controller
     {
         //
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\UserRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    
     public function login(UserRequest $request) //, User $user
     {
-        return "success login";
+        $validated = $request->validated();
+        return $validated;
     }
 
     /**
