@@ -6,6 +6,10 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Foundation\rules\ValidateRule;
 use Illuminate\Support\Str;
 
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class UserRequest extends FormRequest
 {
@@ -29,7 +33,7 @@ class UserRequest extends FormRequest
         return [
             'email' => 'required|email ', //|unique:users',
            // 'name' => 'required|string|max:50',
-            'password' => 'required'
+            'password' => 'required|string|min:6|max:20',
         ];
     }
 
@@ -38,8 +42,11 @@ class UserRequest extends FormRequest
         return [
             'required' => ':attribute bos olamaz!',
             'email' => ':attribute gecerli bir email adresi olmalidir!',
+            'min' => ':attribute en az :min karakter olmalidir!',
+            'max' => ':attribute en fazla :max karakter olmalidir!',
+            'string' => ':attribute String olmalidir!',
             //'name.required' => 'Name is required!',
-            'password.required' => 'Password is required!'
+            //'password.required' => 'Password is required!'
         ];
     }
 
@@ -58,24 +65,24 @@ class UserRequest extends FormRequest
     public function attributes()
     {
         return [
-            'email' => 'e-mail',
-            'password' => 'şifre',
+            'email' => 'E-mail',
+            'password' => 'Şifre',
         ];
     }
-    protected function prepareForValidation()
-    {
-        if($this->password == 'aa'){
-            $this->merge([
-                'password' => bcrypt(Str::random(8))
-            ]);
-        }else{
-            $this->merge([
-                // 'email' => Str::slug($this->slug),
-                 'password' => clear_string($this->password),
-             ]);
-        }
+    // protected function prepareForValidation()
+    // {
+    //     if($this->password == 'aa'){
+    //         $this->merge([
+    //             'password' => bcrypt(Str::random(8))
+    //         ]);
+    //     }else{
+    //         $this->merge([
+    //             // 'email' => Str::slug($this->slug),
+    //              'password' => clear_string($this->password),
+    //          ]);
+    //     }
         
-    }
+    // }
     // public function withValidator($validator)
     // {
     //     // checks user current password

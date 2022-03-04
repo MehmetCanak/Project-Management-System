@@ -11,6 +11,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 
+use Illuminate\Support\Facades\Hash;
+
 class LoginController extends Controller
 {
     public function __construct() {
@@ -35,23 +37,36 @@ class LoginController extends Controller
     
     public function login(UserRequest $request) //, User $user
     {
+        $validated = $request->safe()->only(['email', 'password']);
+        $validated = $request->safe()->except(['email', 'password']);
         $validated = $request->validated();
-        if ($validated->fails()) {
-            return response()->json($validated->errors(), 422);
+
+        $attempt = Auth::attempt($validated);
+        if ($attempt) {
+            $user = Auth::user();
+            $success =  $this->createNewToken($attempt); 
+            return $success;
+        } else {
+            return response()->json(['status' => 'error','error' => 'Unauthorised'], 401);
         }
-        if (! $token = auth()->attempt($validated->validated())) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
+ 
         return $this->createNewToken($token);
-        //return $validated;
+    }
+
+    public function logout() {
+
+        auth()->logout();
+
+        return response()->json(['message' => 'User successfully signed out']);
     }
     protected function createNewToken($token){
         return response()->json([
+            'status' => 'success',
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60,
-            'user' => auth()->user()
-        ]);
+            'user' => auth()->user(),
+        ],200);
     }
 
     /**

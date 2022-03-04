@@ -8,6 +8,7 @@ import { DashboardComponent } from './project/dashboard/dashboard.component';
 import { ComponentsComponent } from './project/components/components.component';
 import { AuthGuard } from './project/core/helpers/auth.guard';
 import { ProjectComponent } from './project/project.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { ProjectComponent } from './project/project.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule
+    AppRoutingModule, 
+    FormsModule, 
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
