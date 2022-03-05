@@ -12,6 +12,7 @@ export const routesRoules = [
 
     { path: '', component: ProjectComponent},
     { path: 'login', component: LoginComponent },
+    { path: 'dashboard', component: DashboardComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

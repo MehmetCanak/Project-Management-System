@@ -6,7 +6,9 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 export class TokenStorageService {
-  constructor() { }
+  constructor() { 
+    
+  }
   public saveToken(token: string): void {
     
     localStorage.removeItem(TOKEN_KEY);
@@ -17,6 +19,7 @@ export class TokenStorageService {
   public getToken(): string | null {
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
+  
   public saveUser(user: any): void {
     
     localStorage.removeItem(USER_KEY);
@@ -35,6 +38,16 @@ export class TokenStorageService {
   public clear(): void {
     localStorage.clear();
     window.sessionStorage.clear();
+  }
+
+  public setLoggedInUserInfo(info:any)
+  {
+    this.writeToLocal("loggedInUserInfo", info)
+  }
+
+  public writeToLocal(key:any, value:any) {
+    localStorage.removeItem(key);
+    localStorage.setItem(key, JSON.stringify(value));
   }
   
   

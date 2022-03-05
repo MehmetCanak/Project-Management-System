@@ -4,20 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Http\Requests\UserRequest;
-use Illuminate\Http\Request;
 use App\Models\User;
 
-use Illuminate\Support\Facades\Auth;
-use Validator;
-
-use Illuminate\Support\Facades\Hash;
-
-class LoginController extends Controller
+class AuthController extends Controller
 {
-    public function __construct() {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -25,48 +15,7 @@ class LoginController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\UserRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    
-    public function login(UserRequest $request) //, User $user
-    {
-        $validated = $request->safe()->only(['email', 'password']);
-        $validated = $request->safe()->except(['email', 'password']);
-        $validated = $request->validated();
-
-        $attempt = Auth::attempt($validated);
-        if ($attempt) {
-            $user = Auth::user();
-            $success =  $this->createNewToken($attempt); 
-            return $success;
-        } else {
-            return response()->json(['status' => 'error','error'=>["message" => 'Email veya Şifre Yalnış']], 200);
-        }
- 
-        return $this->createNewToken($token);
-    }
-
-    public function logout() {
-
-        auth()->logout();
-
-        return response()->json(['message' => 'User successfully signed out']);
-    }
-    protected function createNewToken($token){
-        return response()->json([
-            'status' => 'success',
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
-            'user' => auth()->user(),
-        ],200);
+       return response()->json(auth()->user(),200);
     }
 
     /**
