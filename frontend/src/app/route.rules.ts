@@ -7,10 +7,12 @@ import { LoginComponent } from './project/login/login.component';
 import { ProjectComponent } from './project/project.component';
 import { ComponentsComponent } from './project/components/components.component';
 import { AuthGuard } from './project/core/helpers/auth.guard';
+import { TestComponent } from './project/test/test.component';
 
 export const routesRoules = [
 
-    { path: '', component: ProjectComponent},
+    { path: '', component: TestComponent },
+    { path: 'project', component: ProjectComponent},
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent },
 

@@ -9,6 +9,7 @@ import { ComponentsComponent } from './project/components/components.component';
 import { AuthGuard } from './project/core/helpers/auth.guard';
 import { ProjectComponent } from './project/project.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TestComponent } from './project/test/test.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     DashboardComponent,
     ComponentsComponent,
-    ProjectComponent
+    ProjectComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
