@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../project/core/services/auth.service';
+import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
@@ -8,7 +9,8 @@ import { AuthService } from '../project/core/services/auth.service';
 export class ProjectComponent implements OnInit {
 
   isLoggedIn = false;
-  constructor(private authService: AuthService,) { }
+  title = environment.title;
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
