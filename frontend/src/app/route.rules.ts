@@ -14,8 +14,8 @@ export const routesRoules = [
     { path: '', component: TestComponent },
     { path: 'project', component: ProjectComponent},
     { path: 'login', component: LoginComponent },
-    { path: 'dashboard', component: DashboardComponent },
-
-    // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    {
+        path: "dashboard",
+        loadChildren: () => import('./project/project.module').then(m => m.ProjectModule),
+    }
 ];
