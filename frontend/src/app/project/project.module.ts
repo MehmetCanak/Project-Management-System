@@ -7,6 +7,7 @@ import { TaskComponent } from './components/task/task.component';
 
 import { UsersComponent } from './users/users.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ProjectListComponent,
     TaskComponent,
     UsersComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ContactsComponent
   ],
   imports: [
     CommonModule,

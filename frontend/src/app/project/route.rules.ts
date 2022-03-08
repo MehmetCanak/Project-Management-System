@@ -4,6 +4,8 @@ import { ProjectListComponent } from "./components/project-list/project-list.com
 import { TaskComponent } from './components/task/task.component';
 import { UsersComponent } from './users/users.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+
 
 export const routeRules = 
 [{
@@ -26,6 +28,10 @@ export const routeRules =
         {
             path: 'users',
             component: UsersComponent,
+        },
+        {
+            path: 'contacts',
+            component: ContactsComponent,
         },
         {
             path: '**',
