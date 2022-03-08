@@ -6,13 +6,15 @@ import { ProjectListComponent } from "./components/project-list/project-list.com
 import { TaskComponent } from './components/task/task.component';
 
 import { UsersComponent } from './users/users.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 @NgModule({
   declarations: [
     ProjectListComponent,
     TaskComponent,
-    UsersComponent
+    UsersComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,
