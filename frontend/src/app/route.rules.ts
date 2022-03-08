@@ -12,10 +12,10 @@ import { TestComponent } from './project/test/test.component';
 export const routesRoules = [
 
     { path: '', component: TestComponent },
-    { path: 'project', component: ProjectComponent},
+    { path: 'main', component: ProjectComponent},
     { path: 'login', component: LoginComponent },
     {
-        path: "dashboard",
+        path: "project",
         loadChildren: () => import('./project/project.module').then(m => m.ProjectModule),
     }
 ];

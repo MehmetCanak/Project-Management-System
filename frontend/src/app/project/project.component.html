@@ -198,13 +198,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index2_d2.html" class="nav-link">
+                <a routerLink="/project/dashboard" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Son Siparişler</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link active">
+                <a routerLink="/project/dashboard" class="nav-link active">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Aylık Özet Raporu</p>
                 </a>
@@ -222,13 +222,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#/project" class="nav-link">
+                <a routerLink="/project/project-list" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Proje Listesi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a routerLink="/dashboard" class="nav-link">
+                <a routerLink="/project/tasks" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Üretim Yönetim Sis.</p>
                 </a>
@@ -245,15 +245,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a (click)="navigate('/dasboard')" class="nav-link">
+                <a routerLink="/project/users" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Liste</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Advanced Elements</p>
                 </a>
               </li>
             </ul>
@@ -275,8 +269,7 @@
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <div
-      class="p-3 control-sidebar-content os-host os-theme-light os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-transition os-host-overflow os-host-overflow-y"
-      style="">
+      class="p-3 control-sidebar-content os-host os-theme-light os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-transition os-host-overflow os-host-overflow-y">
       <div class="os-resize-observer-host observed">
         <div class="os-resize-observer" style="left: 0px; right: auto;"></div>
       </div>

@@ -10,8 +10,6 @@ import { AuthGuard } from './project/core/helpers/auth.guard';
 import { ProjectComponent } from './project/project.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TestComponent } from './project/test/test.component';
-import { ProjectListComponent } from './project/components/project-list/project-list.component';
-import { TaskComponent } from './project/components/task/task.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +18,7 @@ import { TaskComponent } from './project/components/task/task.component';
     DashboardComponent,
     ComponentsComponent,
     ProjectComponent,
-    TestComponent,
-    ProjectListComponent,
-    TaskComponent
+    TestComponent
   ],
   imports: [
     BrowserModule,
