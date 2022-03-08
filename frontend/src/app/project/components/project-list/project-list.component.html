@@ -1,106 +1,229 @@
+<!-- Content Header (Page header) -->
+<div class="content-header" style="padding: 5px 0.2rem 3px 0.5rem">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Proje Listesi</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Raporlar</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
 
-    <!-- Content Header (Page header) -->
-    <div class="content-header" style="padding: 5px 0.2rem 3px 0.5rem">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Proje Listesi</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Raporlar</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header" style="padding: 0.5rem 0.3rem 0.2rem 0.5rem;">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <h3 class="card-title">Projeler</h3>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                      <button class="btn btn-info btn-sm"><i class="fas fa-eye"></i></button>
-                      <button class="btn btn-primary btn-sm" ><i class="fas fa-folder"></i></button>
-                      <button class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></button>
-                      <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                    </div>
-                  </div>
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" style="padding: 0.5rem 0.3rem 0.2rem 0.5rem;">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h3 class="card-title">Projeler</h3>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default"><i
+                      class="fas fa-plus"></i></button>
+                  <button class="btn btn-sm" style="background-color:lightsteelblue;"><i
+                      class="fas fa-eye"></i></button>
+                  <button class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></button>
+                  <button class="btn btn-tool btn-sm docs-creator" style="background-color:lightslategrey "><i
+                      class="fas fa-download"></i></button>
+                  <button class="btn btn-primary btn-sm"><i class="fas fa-folder"></i></button>
+                  <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                 </div>
               </div>
-              <!-- /.card-header -->
-              <div class="card-body" style="padding: 0.5rem;">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>id</th>
-                    <th>Name</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
-                    <th>Check Box</th>
-                    <th>status</th>
-                    
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Üretim Yönetim Sis.</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
-                    <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" ></td>
-                    <td><select class="form-control">
-                            <option>finish</option>
-                            <option>proccess</option>
-                            <option>start</option>
-                            <option>static</option>
-                        </select></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                    <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" ></td>
-                    <td><select class="form-control">
-                        <option>finish</option>
-                            <option>proccess</option>
-                            <option>start</option>
-                            <option>static</option>
-                    </select></td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-            
           </div>
-          <!-- /.col -->
+          <!-- /.card-header -->
+          <div class="card-body" style="padding: 0.5rem;">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>Name</th>
+                  <th>Browser</th>
+                  <th>Platform(s)</th>
+                  <th>Engine version</th>
+                  <th>CSS grade</th>
+                  <th>Check Box</th>
+                  <th>status</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Üretim Yönetim Sis.</td>
+                  <td>Internet
+                    Explorer 4.0
+                  </td>
+                  <td>Win 95+</td>
+                  <td> 4</td>
+                  <td>X</td>
+                  <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox"></td>
+                  <td><select class="form-control">
+                      <option>finish</option>
+                      <option>proccess</option>
+                      <option>start</option>
+                      <option>static</option>
+                    </select></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 5.0
+                  </td>
+                  <td>Win 95+</td>
+                  <td>5</td>
+                  <td>C</td>
+                  <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox"></td>
+                  <td><select class="form-control">
+                      <option>finish</option>
+                      <option>proccess</option>
+                      <option>start</option>
+                      <option>static</option>
+                    </select></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
         </div>
-        <!-- /.row -->
-      </div><!--/. container-fluid -->
-    </section>
+        <!-- /.card -->
 
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!--/. container-fluid -->
+</section>
 
+<div class="modal fade" id="modal-default" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Proje Ekle</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Main content -->
+        <section class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <!-- left column -->
+              <div class="col-md-12">
+                <!-- jquery validation -->
+                <div class="card card-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">Quick Example <small>jQuery Validation</small></h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <!-- form start -->
+                  <form id="quickForm">
+                    <div class="card-body">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                          placeholder="Enter email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+                          placeholder="Password">
+                      </div>
+                      <div class="form-group mb-0">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
+                          <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of
+                              service</a>.</label>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.card -->
+              </div>
+              <!--/.col (left) -->
+              <!-- right column -->
+              <div class="col-md-6">
+
+              </div>
+              <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+          </div><!-- /.container-fluid -->
+        </section>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+        <button type="button" class="btn btn-primary">Kaydet</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<script>
+  $(function () {
+    $.validator.setDefaults({
+      submitHandler: function () {
+        alert("Form successful submitted!");
+      }
+    });
+    $('#quickForm').validate({
+      rules: {
+        email: {
+          required: true,
+          email: true,
+        },
+        password: {
+          required: true,
+          minlength: 5
+        },
+        terms: {
+          required: true
+        },
+      },
+      messages: {
+        email: {
+          required: "Please enter a email address",
+          email: "Please enter a valid email address"
+        },
+        password: {
+          required: "Please provide a password",
+          minlength: "Your password must be at least 5 characters long"
+        },
+        terms: "Please accept our terms"
+      },
+      errorElement: 'span',
+      errorPlacement: function (error, element) {
+        error.addClass('invalid-feedback');
+        element.closest('.form-group').append(error);
+      },
+      highlight: function (element, errorClass, validClass) {
+        $(element).addClass('is-invalid');
+      },
+      unhighlight: function (element, errorClass, validClass) {
+        $(element).removeClass('is-invalid');
+      }
+    });
+  });
+
+</script>

@@ -11,11 +11,13 @@ import { TestComponent } from './project/test/test.component';
 
 export const routesRoules = [
 
-    { path: '', component: TestComponent },
+    // { path: '', component: TestComponent },
     { path: 'main', component: ProjectComponent},
     { path: 'login', component: LoginComponent },
     {
         path: "project",
         loadChildren: () => import('./project/project.module').then(m => m.ProjectModule),
-    }
+    },
+    { path: '', redirectTo:'project', pathMatch: 'full' },
+    { path: '**', redirectTo: 'project' }
 ];

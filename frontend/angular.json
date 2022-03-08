@@ -41,9 +41,7 @@
               "src/assets/theme/plugins/jquery-mousewheel/jquery.mousewheel.js",
               "src/assets/theme/plugins/jquery-mapael/jquery.mapael.min.js",
               "src/assets/theme/plugins/jquery-mapael/maps/usa_states.js",
-              "src/assets/theme/plugins/chart.js/Chart.min.js",
-              "src/assets/theme/dist/js/demo.js",
-              "src/assets/theme/dist/js/pages/dashboard2.js"
+              "src/assets/theme/plugins/chart.js/Chart.min.js"
             ]
           },
           "configurations": {
