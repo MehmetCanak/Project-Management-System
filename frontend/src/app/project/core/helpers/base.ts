@@ -9,11 +9,12 @@ export abstract class BaseHelper
 
   public static formSendMethod = 'POST';
   
-  public static backendBaseUrl:string = "https://"+environment.host+"/";
+  public static backendBaseUrl:string = "http://"+environment.host+"/";
   public static backendUrl:string = "https://"+environment.host+"/api/v1/";
   public static dashboardUrl:string = "http://"+environment.host+"/#/"+environment.urlPath+"dashboard";
   public static baseUrl:string = "https://"+environment.host+"/#/"+environment.urlPath+"";
-  
+
+  public static header:any = {"Content-Type": "application/json", "Accept": "application/json"};
   public static noImageUrl = 'assets/img/404.png';
 
   public static tokenTimeOut = 1000 * 60 * 60 * 24 * 5;

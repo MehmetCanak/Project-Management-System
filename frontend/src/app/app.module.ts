@@ -10,6 +10,8 @@ import { AuthGuard } from './project/core/helpers/auth.guard';
 import { ProjectComponent } from './project/project.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TestComponent } from './project/test/test.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { TestComponent } from './project/test/test.component';
     AppRoutingModule, 
     FormsModule, 
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -55,7 +55,8 @@ export class AuthService {
       
    
   }
-  doRequest(url:string,data:any):Observable<any> {
+  doRequest(url:string,data:any):Observable<any> 
+  {
     return this.http.post(url, data, httpOptions);
   }
   

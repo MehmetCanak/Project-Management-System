@@ -17,7 +17,8 @@ export class TokenStorageService {
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
   public getToken(): string | null {
-    return window.sessionStorage.getItem(TOKEN_KEY);
+    return localStorage.getItem(TOKEN_KEY);
+    // return window.sessionStorage.getItem(TOKEN_KEY);
   }
   
   public saveUser(user: any): void {

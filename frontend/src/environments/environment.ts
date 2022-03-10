@@ -5,8 +5,8 @@ export const environment =
   appName: "Kuvars Soft",
   
   title: 'My Angular App',
-  host: "192.168.3.41",
-  urlPath: "",
-  apiUrl: 'http://localhost:3000/api/v1',
+  host: "localhost:3000",
+  urlPath: "project",
+  apiUrl: 'http://192.168.3.41/api/v1',
   
 }; 
