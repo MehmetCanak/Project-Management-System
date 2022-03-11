@@ -15,7 +15,7 @@ import 'sweetalert2/dist/sweetalert2.min.css'
 })
 export class RestApiService {
 
-  url = BaseHelper.backendBaseUrl;
+  url = BaseHelper.backendUrl;
   token = {'token':this.tokenStorage.getToken()};
   httpOptions = {
     headers: new HttpHeaders(

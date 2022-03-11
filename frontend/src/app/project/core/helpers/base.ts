@@ -10,7 +10,7 @@ export abstract class BaseHelper
   public static formSendMethod = 'POST';
   
   public static backendBaseUrl:string = "http://"+environment.host+"/";
-  public static backendUrl:string = "https://"+environment.host+"/api/v1/";
+  public static backendUrl:string = "http://"+environment.host+"/api/v1/";
   public static dashboardUrl:string = "http://"+environment.host+"/#/"+environment.urlPath+"dashboard";
   public static baseUrl:string = "https://"+environment.host+"/#/"+environment.urlPath+"";
 
