@@ -54,4 +54,7 @@ export class ProjectListComponent implements OnInit {
   reset() {
     this.addProjectForm.reset();
   }
+  onSubmitFile() {
+    console.log("submit file");
+  }
 }

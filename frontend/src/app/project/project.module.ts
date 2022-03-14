@@ -9,6 +9,7 @@ import { TaskComponent } from './components/task/task.component';
 import { UsersComponent } from './users/users.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
@@ -19,6 +20,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     UsersComponent,
     NotFoundComponent,
     ContactsComponent,
+    SpinnerComponent,
   ],
   imports: [
     CommonModule,

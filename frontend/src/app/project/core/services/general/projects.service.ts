@@ -24,7 +24,7 @@ export class ProjectsService {
   createProjects(project: any){
 
     var url = this.url + '/store';
-    return this.rs.doHttpRequest("GET", url, project)
+    return this.rs.doHttpRequest("POST", url, project)
       .then((data) =>
       {
         console.log("ps :",data);

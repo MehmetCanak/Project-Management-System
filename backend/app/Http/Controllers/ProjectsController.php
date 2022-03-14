@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Projects;
 use Illuminate\Http\Request;
+use Gate;
+
 
 class ProjectsController extends Controller
 {
@@ -35,6 +37,7 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::allows('create', Post::find(2));
         dd($request->all());
         return "store success";
     }

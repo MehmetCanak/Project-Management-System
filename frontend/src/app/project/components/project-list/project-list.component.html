@@ -32,9 +32,9 @@
                   <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default"><i
                       class="fas fa-plus"></i></button>
                   <button class="btn btn-sm" style="background-color:lightsteelblue;"><i
-                      class="fas fa-eye"></i></button>
+                      class="fas fa-eye"></i></button>   
                   <button class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></button>
-                  <button class="btn btn-tool btn-sm docs-creator" style="background-color:lightslategrey "><i
+                  <button class="btn btn-tool btn-sm docs-creator" data-toggle="modal" data-target="#modal-file"style="background-color:lightslategrey "><i
                       class="fas fa-download"></i></button>
                   <button class="btn btn-primary btn-sm"><i class="fas fa-folder"></i></button>
                   <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
@@ -139,6 +139,45 @@
                   <label for="InputName" >Description</label>
                   <textarea id = "InputDescription" class="form-control" rows="3" placeholder="Description"
                     formControlName="description"  name="description" ></textarea>
+                </div>
+                <!-- <button type="button" (click)="updateProfile()">Update Profile</button> -->
+                <!-- <p>Form Status: {{ addProjectForm.status }}</p> -->
+                <!-- <button type="button" (click)="updateName()">Update Name</button>
+                    <p>Value: {{ name.value }}</p> -->
+                  </div>
+                  
+                </div>
+              </section>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button"  class="btn btn-default" data-dismiss="modal">Kapat</button>
+              <button type="submit" class="btn btn-primary">Kaydet</button>
+            </div>
+          </form>
+      </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="modal-file" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="border-color:#6585a1">
+      <div class="modal-header" style="padding: 0.5rem 1rem;">
+        <h4 class="modal-title">İnput form</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="quickForm" (ngSubmit)="onSubmitFile()">
+      <div class="modal-body">
+        <section class="content">
+          <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Dosya Seç</label>
+                  </div>
                 </div>
                 <!-- <button type="button" (click)="updateProfile()">Update Profile</button> -->
                 <!-- <p>Form Status: {{ addProjectForm.status }}</p> -->

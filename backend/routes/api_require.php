@@ -13,5 +13,5 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::post('/user', [AuthController::class, 'index']);
 
 Route::group(['prefix' => 'project'], function () { 
-    Route::get('/store', [ProjectsController::class, 'store']);
+    Route::post('/store', [ProjectsController::class, 'store']);
  });
