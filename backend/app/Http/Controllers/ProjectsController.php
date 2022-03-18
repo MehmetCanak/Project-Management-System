@@ -37,7 +37,6 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::allows('create', Post::find(2));
         dd($request->all());
         return "store success";
     }

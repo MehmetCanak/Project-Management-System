@@ -19,6 +19,9 @@ export class ProjectListComponent implements OnInit {
     name: ['', Validators.required],
     description: ['', Validators.required],
   });
+  addFileForm = this.fb.group({
+    file: ['', Validators.required],
+  });
 
   constructor(private fb: FormBuilder,
               private restApi: RestApiService, 
@@ -56,5 +59,6 @@ export class ProjectListComponent implements OnInit {
   }
   onSubmitFile() {
     console.log("submit file");
+    console.log(this.addFileForm.value);
   }
 }

@@ -44,57 +44,59 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body" style="padding: 0.5rem;">
-            <table id="example1" class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>id</th>
-                  <th>Name</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
-                  <th>Check Box</th>
-                  <th>status</th>
+            <div class="table-responsive">
+              <table id="example1" class="table table-head-fixed table-striped table-hover text-nowrap ">
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Browser</th>
+                    <th>Platform(s)</th>
+                    <th>Engine version</th>
+                    <th>CSS grade</th>
+                    <th>Check Box</th>
+                    <th>status</th>
 
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Üretim Yönetim Sis.</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                  <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox"></td>
-                  <td><select class="form-control">
-                      <option>finish</option>
-                      <option>proccess</option>
-                      <option>start</option>
-                      <option>static</option>
-                    </select></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5</td>
-                  <td>C</td>
-                  <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox"></td>
-                  <td><select class="form-control">
-                      <option>finish</option>
-                      <option>proccess</option>
-                      <option>start</option>
-                      <option>static</option>
-                    </select></td>
-                </tr>
-              </tbody>
-            </table>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Üretim Yönetim Sis.</td>
+                    <td>Internet
+                      Explorer 4.0
+                    </td>
+                    <td>Win 95+</td>
+                    <td> 4</td>
+                    <td>X</td>
+                    <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox"></td>
+                    <td><select class="form-control">
+                        <option>finish</option>
+                        <option>proccess</option>
+                        <option>start</option>
+                        <option>static</option>
+                      </select></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Trident</td>
+                    <td>Internet
+                      Explorer 5.0
+                    </td>
+                    <td>Win 95+</td>
+                    <td>5</td>
+                    <td>C</td>
+                    <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox"></td>
+                    <td><select class="form-control">
+                        <option>finish</option>
+                        <option>proccess</option>
+                        <option>start</option>
+                        <option>static</option>
+                      </select></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
           <!-- /.card-body -->
         </div>
@@ -168,14 +170,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form id="quickForm" (ngSubmit)="onSubmitFile()">
+      <form id="quickForm" [formGroup]="addFileForm" (ngSubmit)="onSubmitFile()">
       <div class="modal-body">
         <section class="content">
           <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile">
+                    <input type="file" class="custom-file-input" id="customFile" name="file">
                     <label class="custom-file-label" for="customFile">Dosya Seç</label>
                   </div>
                 </div>
