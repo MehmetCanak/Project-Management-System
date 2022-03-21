@@ -1,0 +1,6 @@
+[class*=sidebar-dark-] .sidebar a{
+    color: #e9eaeb;
+}
+[class*=sidebar-dark-] .sidebar a:hover{
+    color: #ffc902;
+}
